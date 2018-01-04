@@ -14,6 +14,8 @@
 //float button
 @property (strong, nonatomic) UIButton *floatButton;
 
+
+
 @end
 
 static NSString *const ListTableViewCellIndentifier = @"ListTableViewCellIndentifier";
@@ -27,43 +29,41 @@ static NSString *const ListTableViewCellIndentifier = @"ListTableViewCellIndenti
     {
         _floatButton = [[UIButton alloc] init];
         _floatButton.backgroundColor = [UIColor redColor];
-
-
+        [_floatButton setTitle:@"button2" forState:UIControlStateNormal];
+        
     }
     return _floatButton;
 }
 
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    self.floatButton.translatesAutoresizingMaskIntoConstraints = NO;
 
+    [self setupViews];
+
+    
+}
+
+- (void)setupViews
+{
+    self.floatButton.translatesAutoresizingMaskIntoConstraints = NO;
+    
     [self.view addSubview:self.floatButton];
     
-    NSLayoutConstraint *widthConstraint = [self.floatButton.widthAnchor constraintEqualToConstant:50];
+    NSLayoutConstraint *widthConstraint = [self.floatButton.widthAnchor constraintEqualToConstant:100];
     NSLayoutConstraint *heightConstraint =  [self.floatButton.heightAnchor constraintEqualToConstant:50];
     
-    NSLayoutConstraint *rightConstraint = [self.floatButton.rightAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.rightAnchor constant:10];
-    NSLayoutConstraint *bottomConstraint = [self.floatButton.bottomAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.bottomAnchor constant:10];
-
+    NSLayoutConstraint *rightConstraint = [self.floatButton.rightAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.rightAnchor constant:-50];
+    NSLayoutConstraint *bottomConstraint = [self.floatButton.bottomAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.bottomAnchor constant:-50];
+    
     rightConstraint.active = YES;
     bottomConstraint.active = YES;
     widthConstraint.active = YES;
     heightConstraint.active = YES;
     
 
-//    self.floatButton.bottomAnchor.constraint(equalTo: tableView.layoutMarginsGuide.bottomAnchor, constant: -10).isActive = true
     
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - Table view data source
@@ -85,51 +85,9 @@ static NSString *const ListTableViewCellIndentifier = @"ListTableViewCellIndenti
 }
 
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    
+    //config frame
 }
 @end
+
